@@ -20,6 +20,7 @@
                 <th>Categoría</th>
                 <th>Marca</th>
                 <th>Fecha Adquisición</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,9 @@
                 <td>{{ item.category.name }}</td>
                 <td>{{ item.brand }}</td>
                 <td>{{ item.purchase_date|default:"-" }}</td>
+                <td>
+                    <a href="{% url 'item_detail' item.id %}">Ver Detalles</a>
+                </td>
             </tr>
             {% empty %}
             <tr>

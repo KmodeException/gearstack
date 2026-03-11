@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle: {{ item.name }}</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; background-color: #f4f4f4; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .back-link { display: inline-block; margin-top: 20px; color: #2c3e50; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>{{ item.name }}</h1>
+        <p><strong>Categoría:</strong> {{ item.category.name }}</p>
+        <p><strong>Marca:</strong> {{ item.brand }}</p>
+        <p><strong>Nº Serie:</strong> {{ item.serial_number|default:"No disponible" }}</p>
+        <p><strong>Fecha de compra:</strong> {{ item.purchase_date|date:"d/m/Y" }}</p>
+        <hr>
+        <h3>Notas:</h3>
+        <p>{{ item.notes|linebreaks }}</p>
+        
+        <a href="{% url 'item_list' %}" class="back-link">← Volver al inventario</a>
+    </div>
+</body>
+</html>
