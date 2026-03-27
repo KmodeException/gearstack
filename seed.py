@@ -28,7 +28,7 @@ def seed_data():
             category=random.choice(cat_objs),
             brand=fake.company(),
             serial_number=fake.bothify(text='SN-####-####-??'),
-            notes=fake.sentence(nb_words=10),
+            description=fake.sentence(nb_words=10), # <--- AQUÍ: DEBE SER DESCRIPTION
             purchase_date=fake.date_between(start_date='-2y', end_date='today')
         )
     print("¡listo! 15 ítems de ejemplo creados.")

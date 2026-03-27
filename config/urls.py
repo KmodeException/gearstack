@@ -16,11 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from inventory.views import item_list
-from inventory.views import item_detail
+from inventory.views import item_list, item_detail, item_create, item_delete
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # Lista de items (y búsqueda)
     path('', item_list, name='item_list'),
+    
+    # Detalle de item
     path('item/<int:pk>/', item_detail, name='item_detail'),
+    
+    # Nueva ruta: Añadir item
+    path('add/', item_create, name='item_create'),
+    
+    # Nueva ruta: Eliminar item
+    path('delete/<int:pk>/', item_delete, name='item_delete'),
+
 ]
